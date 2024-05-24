@@ -17,7 +17,7 @@ from keras import backend as K
 import sys
 
 
-K.image_data_format('tf') #For problems with ordering
+#K.image_data_format('tf') #For problems with ordering
 
 number_of_classes = 4
 
