@@ -131,7 +131,7 @@ model.add(Dense(number_of_classes, activation='softmax'))
 #Callbacks and accuracy calculation
 #early_stopping = keras.callbacks.EarlyStopping(monitor='val_acc', min_delta=0, patience=50, verbose=1, mode='auto')
 model.compile(loss='categorical_crossentropy', optimizer='rmsprop', metrics=['accuracy'])
-checkpointer = ModelCheckpoint(filepath="Keras_models/weights.{epoch:02d}-{val_acc:.2f}.hdf5", monitor='val_loss', save_weights_only=False, period=1, verbose=1, save_best_only=False)
+checkpointer = ModelCheckpoint(filepath="Keras_models/weights.{epoch:02d}-{val_accuracy:.2f}.hdf5", monitor='val_loss', save_weights_only=False, period=1, verbose=1, save_best_only=False)
 model.fit(X_train, Y_train, epochs=250, batch_size=batch_size, validation_data=(X_val, Y_val), verbose=2, shuffle=False, callbacks=[checkpointer])
 model.save('Keras_models/my_model_' + str(i) + '_' + str(j) + '_' + str() + '.h5')
 predictions = model.predict(X_val)
